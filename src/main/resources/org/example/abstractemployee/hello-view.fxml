@@ -1,16 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
-
 <?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="org.example.abstractemployee.HelloController">
-  <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-  </padding>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Text?>
 
-  <Label fx:id="welcomeText"/>
-  <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.example.abstractemployee.EmployeeController">
+   <children>
+       <TableView fx:id="employeeTable" layoutX="335.0" prefHeight="400.0" prefWidth="265.0">
+           <columns>
+               <TableColumn fx:id="columnName" prefWidth="79.20001220703125" text="Name" />
+               <TableColumn fx:id="columnType" prefWidth="96.79998779296875" text="Type" />
+               <TableColumn fx:id="columnSalary" prefWidth="88.79998779296875" text="Salary" />
+           </columns>
+       </TableView>
+
+       <Button fx:id="buttonCalculateSalary" layoutX="28.0" layoutY="337.0" mnemonicParsing="false" onAction="#onCalculateSalary" text="Calculate" />
+      <Button fx:id="buttonAdd" layoutX="281.0" layoutY="337.0" mnemonicParsing="false" onAction="#onAddEmployee" text="Add" />
+      <TextField fx:id="NameField" layoutX="28.0" layoutY="61.0" />
+      <Text layoutX="30.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:" />
+      <RadioButton fx:id="buttonFullTime" layoutX="30.0" layoutY="112.0" mnemonicParsing="false" selected="true" text="Full-Time">
+         <toggleGroup>
+            <ToggleGroup fx:id="type" />
+         </toggleGroup>
+      </RadioButton>
+      <RadioButton fx:id="buttonPartTime" layoutX="30.0" layoutY="130.0" mnemonicParsing="false" text="Part-Time" toggleGroup="$type" />
+      <RadioButton fx:id="buttonContractor" layoutX="30.0" layoutY="148.0" mnemonicParsing="false" text="Contractor" toggleGroup="$type" />
+      <Text layoutX="30.0" layoutY="108.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Type: " />
+      <Text layoutX="30.0" layoutY="318.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Salary: " />
+      <TextField fx:id="fieldSalary" editable="false" layoutX="71.0" layoutY="301.0" />
+      <TextField fx:id="hoursField" layoutX="29.0" layoutY="204.0" />
+      <Text fx:id="hoursText" layoutX="29.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hours worked:" />
+      <Text layoutX="94.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Employee Management System" />
+      <Text fx:id="wageText" layoutX="28.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hourly wage:" />
+      <TextField fx:id="wageField" layoutX="29.0" layoutY="257.0" />
+   </children>
+</Pane>
